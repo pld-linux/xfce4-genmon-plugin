@@ -1,6 +1,6 @@
 %define		name_src	xfce4-GenMon-plugin
-Summary:	Generic monitor plugin for the Xfce4 Panel.
-Summary(pl):	Wtyczka ogólnego przeznaczenia dla panelu XFce4.
+Summary:	Generic monitor plugin for the Xfce4 Panel
+Summary(pl):	Wtyczka ogólnego przeznaczenia dla panelu XFce4
 Name:		xfce4-genmon-plugin
 Version:	1.1
 Release:	1

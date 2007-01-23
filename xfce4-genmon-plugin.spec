@@ -1,16 +1,15 @@
-%define		name_src	xfce4-GenMon-plugin
 Summary:	Generic monitor plugin for the Xfce4 Panel
 Summary(pl):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
-Version:	1.1
+Version:	3.0
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://download.berlios.de/xfce-goodies/%{name_src}-%{version}.tar.gz
-# Source0-md5:	d9ebea4373ba52b08ec37c9026e09402
-URL:		http://xfce-goodies.berlios.de/
+Source0:	http://goodies.xfce.org/releases/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	e44c78dab7a2856b76d5a1d8c9e6ebf2
+URL:		http://goodies.xfce.org/
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-panel-devel >= 4.1.99
+BuildRequires:	xfce4-panel-devel >= 4.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,10 +21,28 @@ Wtyczka GenMon cyklicznie wykonuje podany skrypt lub program,
 przechwytuj±c jego standardowe wyj¶cie i wy¶wietla je w postaci
 tekstowej na panelu.
 
+%package scripts
+Summary:        Sample scripts for xfce4-genmon-plugin
+Summary(pl):    Przyk³adowe skrypty dla xfce4-genmon-plugin
+Group:          X11/Applications
+Requires:       %{name} = %{version}
+
+%description scripts
+Sample scripts for xfce4-genmon-plugin
+
+%description scripts -l pl
+Przyk³adowe skrypty dla xfce4-genmon-plugin
+
 %prep
 %setup -q
 
 %build
+%{__intltoolize}
+%{__libtoolize}
+%{__aclocal}
+%{__autoheader}
+%{__automake}
+%{__autoconf}
 %configure \
 	--disable-static
 %{__make}
@@ -36,12 +53,29 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/xfce4/panel-plugins/*.la
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install scripts/{datetime,disktemp,dkspuse,monBat,monCPU,monTime,monUSB,monWIFI,samples.txt} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
+
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/*.so
+%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/%{name}
+%{_datadir}/xfce4/panel-plugins/genmon.desktop
+
+%files scripts
+%defattr(644,root,root,755)
+%dir %{_examplesdir}/%{name}-%{version}
+%{_examplesdir}/%{name}-%{version}/datetime
+%{_examplesdir}/%{name}-%{version}/disktemp
+%{_examplesdir}/%{name}-%{version}/dkspuse
+%{_examplesdir}/%{name}-%{version}/monBat
+%{_examplesdir}/%{name}-%{version}/monCPU
+%{_examplesdir}/%{name}-%{version}/monTime
+%{_examplesdir}/%{name}-%{version}/monUSB
+%{_examplesdir}/%{name}-%{version}/monWIFI
+%{_examplesdir}/%{name}-%{version}/samples.txt

@@ -5,10 +5,15 @@ Version:	3.0
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://goodies.xfce.org/releases/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://goodies.xfce.org/releases/xfce4-genmon-plugin/%{name}-%{version}.tar.bz2
 # Source0-md5:	e44c78dab7a2856b76d5a1d8c9e6ebf2
-URL:		http://goodies.xfce.org/
+URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	intltool
+BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	xfce4-dev-tools >= 4.4.0
 BuildRequires:	xfce4-panel-devel >= 4.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,16 +27,16 @@ przechwytuj±c jego standardowe wyj¶cie i wy¶wietla je w postaci
 tekstowej na panelu.
 
 %package scripts
-Summary:        Sample scripts for xfce4-genmon-plugin
-Summary(pl):    Przyk³adowe skrypty dla xfce4-genmon-plugin
-Group:          X11/Applications
-Requires:       %{name} = %{version}
+Summary:	Sample scripts for xfce4-genmon-plugin
+Summary(pl):	Przyk³adowe skrypty dla xfce4-genmon-plugin
+Group:		X11/Applications
+Requires:	%{name} = %{version}-%{release}
 
 %description scripts
-Sample scripts for xfce4-genmon-plugin
+Sample scripts for xfce4-genmon-plugin.
 
 %description scripts -l pl
-Przyk³adowe skrypty dla xfce4-genmon-plugin
+Przyk³adowe skrypty dla xfce4-genmon-plugin.
 
 %prep
 %setup -q

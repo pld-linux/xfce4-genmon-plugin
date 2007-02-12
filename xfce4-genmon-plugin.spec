@@ -1,5 +1,5 @@
 Summary:	Generic monitor plugin for the Xfce4 Panel
-Summary(pl.UTF-8):   Wtyczka ogólnego przeznaczenia dla panelu Xfce4
+Summary(pl.UTF-8):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
 Version:	3.0
 Release:	1
@@ -28,7 +28,7 @@ tekstowej na panelu.
 
 %package scripts
 Summary:	Sample scripts for xfce4-genmon-plugin
-Summary(pl.UTF-8):   Przykładowe skrypty dla xfce4-genmon-plugin
+Summary(pl.UTF-8):	Przykładowe skrypty dla xfce4-genmon-plugin
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 

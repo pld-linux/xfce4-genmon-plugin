@@ -1,5 +1,5 @@
 Summary:	Generic monitor plugin for the Xfce4 Panel
-Summary(pl):	Wtyczka ogÛlnego przeznaczenia dla panelu Xfce4
+Summary(pl.UTF-8):   Wtyczka og√≥lnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
 Version:	3.0
 Release:	1
@@ -21,22 +21,22 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The GenMon plugin cyclically spawns the indicated script/program,
 captures its output and displays it as a string into the panel.
 
-%description -l pl
+%description -l pl.UTF-8
 Wtyczka GenMon cyklicznie wykonuje podany skrypt lub program,
-przechwytuj±c jego standardowe wyj∂cie i wy∂wietla je w postaci
+przechwytujƒÖc jego standardowe wyj≈õcie i wy≈õwietla je w postaci
 tekstowej na panelu.
 
 %package scripts
 Summary:	Sample scripts for xfce4-genmon-plugin
-Summary(pl):	Przyk≥adowe skrypty dla xfce4-genmon-plugin
+Summary(pl.UTF-8):   Przyk≈Çadowe skrypty dla xfce4-genmon-plugin
 Group:		X11/Applications
 Requires:	%{name} = %{version}-%{release}
 
 %description scripts
 Sample scripts for xfce4-genmon-plugin.
 
-%description scripts -l pl
-Przyk≥adowe skrypty dla xfce4-genmon-plugin.
+%description scripts -l pl.UTF-8
+Przyk≈Çadowe skrypty dla xfce4-genmon-plugin.
 
 %prep
 %setup -q

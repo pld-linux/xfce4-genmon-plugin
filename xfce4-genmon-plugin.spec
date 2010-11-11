@@ -1,20 +1,17 @@
 Summary:	Generic monitor plugin for the Xfce4 Panel
 Summary(pl.UTF-8):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
-Version:	3.0
+Version:	3.2
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://goodies.xfce.org/releases/xfce4-genmon-plugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	e44c78dab7a2856b76d5a1d8c9e6ebf2
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	5f292aa102a87d45207b6a373939a35d
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	intltool
-BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= 4.4.0
 BuildRequires:	xfce4-panel-devel >= 4.4.0
+Obsoletes:	xfce4-genmon-plugin-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,14 +39,9 @@ Przykładowe skrypty dla xfce4-genmon-plugin.
 %setup -q
 
 %build
-%{__intltoolize}
-%{__libtoolize}
-%{__aclocal}
-%{__autoheader}
-%{__automake}
-%{__autoconf}
 %configure \
 	--disable-static
+
 %{__make}
 
 %install
@@ -58,8 +50,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%if 0
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install scripts/{datetime,disktemp,dkspuse,monBat,monCPU,monTime,monUSB,monWIFI,samples.txt} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
+%endif
 
 %find_lang %{name}
 
@@ -72,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/xfce4/panel-plugins/%{name}
 %{_datadir}/xfce4/panel-plugins/genmon.desktop
 
+%if 0
 %files scripts
 %defattr(644,root,root,755)
 %dir %{_examplesdir}/%{name}-%{version}
@@ -84,3 +79,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_examplesdir}/%{name}-%{version}/monUSB
 %{_examplesdir}/%{name}-%{version}/monWIFI
 %{_examplesdir}/%{name}-%{version}/samples.txt
+%endif

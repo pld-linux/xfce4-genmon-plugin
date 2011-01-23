@@ -8,6 +8,8 @@ Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.2/%{name}-%{version}.tar.bz2
 # Source0-md5:	5f292aa102a87d45207b6a373939a35d
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
+BuildRequires:	gettext-devel
+BuildRequires:	perl-XML-Parser
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= 4.4.0
 BuildRequires:	xfce4-panel-devel >= 4.4.0

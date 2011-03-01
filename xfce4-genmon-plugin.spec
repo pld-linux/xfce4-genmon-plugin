@@ -2,17 +2,19 @@ Summary:	Generic monitor plugin for the Xfce4 Panel
 Summary(pl.UTF-8):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
 Version:	3.2
-Release:	3
+Release:	4
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.2/%{name}-%{version}.tar.bz2
 # Source0-md5:	5f292aa102a87d45207b6a373939a35d
 Patch0:		link.patch
+Patch1:		%{name}-ui.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	libtool
+BuildRequires:	libxfce4ui-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= 4.4.0
@@ -44,6 +46,7 @@ Przykładowe skrypty dla xfce4-genmon-plugin.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}

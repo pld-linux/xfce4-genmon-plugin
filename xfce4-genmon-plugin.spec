@@ -65,6 +65,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install scripts/{datetime,disktemp,dkspuse,monBat,monCPU,monTime,monUSB,monWIFI,samples.txt} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
 %endif
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/libgenmon.so
+
 %find_lang %{name}
 
 %clean
@@ -73,8 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-#%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/%{name}
-#%{_datadir}/xfce4/panel-plugins/genmon.desktop
+%attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libgenmon.so
+%{_datadir}/xfce4/panel/plugins/genmon.desktop
 
 %if 0
 %files scripts

@@ -1,14 +1,12 @@
 Summary:	Generic monitor plugin for the Xfce4 Panel
 Summary(pl.UTF-8):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
-Version:	3.2
-Release:	4
+Version:	3.4.0
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	5f292aa102a87d45207b6a373939a35d
-Patch0:		link.patch
-Patch1:		%{name}-ui.patch
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	24108b339bb040ed360266f53a245224
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -44,9 +42,7 @@ Sample scripts for xfce4-genmon-plugin.
 Przykładowe skrypty dla xfce4-genmon-plugin.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
+%setup -q -n %{name}-3.4
 
 %build
 %{__libtoolize}
@@ -79,8 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
-%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/%{name}
-%{_datadir}/xfce4/panel-plugins/genmon.desktop
+#%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/%{name}
+#%{_datadir}/xfce4/panel-plugins/genmon.desktop
 
 %if 0
 %files scripts

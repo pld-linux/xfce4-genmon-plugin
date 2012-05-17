@@ -65,7 +65,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install scripts/{datetime,disktemp,dkspuse,monBat,monCPU,monTime,monUSB,monWIFI,samples.txt} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
 %endif
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/libgenmon.so
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
 
 %find_lang %{name}
 

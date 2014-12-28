@@ -10,7 +10,7 @@ Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.4/%{nam
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	libtool
 BuildRequires:	libxfce4ui-devel
 BuildRequires:	perl-XML-Parser

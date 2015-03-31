@@ -2,7 +2,7 @@ Summary:	Generic monitor plugin for the Xfce4 Panel
 Summary(pl.UTF-8):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
 Version:	3.4.0
-Release:	3
+Release:	4
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.4/%{name}-%{version}.tar.bz2

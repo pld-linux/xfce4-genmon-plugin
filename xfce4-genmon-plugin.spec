@@ -1,12 +1,12 @@
 Summary:	Generic monitor plugin for the Xfce4 Panel
 Summary(pl.UTF-8):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
-Version:	3.4.0
-Release:	4
+Version:	4.0.2
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/3.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	24108b339bb040ed360266f53a245224
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/4.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	d808fe77a438c95b97ec6feda6162d22
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -15,8 +15,8 @@ BuildRequires:	libtool
 BuildRequires:	libxfce4ui-devel
 BuildRequires:	perl-XML-Parser
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-dev-tools >= 4.4.0
-BuildRequires:	xfce4-panel-devel >= 4.4.0
+BuildRequires:	xfce4-dev-tools >= 4.14.0
+BuildRequires:	xfce4-panel-devel >= 4.14.0
 Obsoletes:	xfce4-genmon-plugin-scripts
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,7 +42,7 @@ Sample scripts for xfce4-genmon-plugin.
 Przykładowe skrypty dla xfce4-genmon-plugin.
 
 %prep
-%setup -q -n %{name}-3.4
+%setup -q
 
 %build
 %{__libtoolize}
@@ -68,6 +68,7 @@ install scripts/{datetime,disktemp,dkspuse,monBat,monCPU,monTime,monUSB,monWIFI,
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
 
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/{hy_AM,hy}
 
 %find_lang %{name}
 

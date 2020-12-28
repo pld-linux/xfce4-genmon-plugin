@@ -1,12 +1,12 @@
 Summary:	Generic monitor plugin for the Xfce4 Panel
 Summary(pl.UTF-8):	Wtyczka ogólnego przeznaczenia dla panelu Xfce4
 Name:		xfce4-genmon-plugin
-Version:	4.0.2
+Version:	4.1.0
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/4.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	d808fe77a438c95b97ec6feda6162d22
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-genmon-plugin/4.1/%{name}-%{version}.tar.bz2
+# Source0-md5:	29f05962092aedac84c5f040429ce37a
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-genmon-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -62,13 +62,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %if 0
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-install scripts/{datetime,disktemp,dkspuse,monBat,monCPU,monTime,monUSB,monWIFI,samples.txt} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
+cp -p scripts/{datetime,disktemp,dkspuse,monBat,monCPU,monTime,monUSB,monWIFI,samples.txt} $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/
 %endif
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
 
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
-%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/{hy_AM,hy}
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{hye,ie,ur_PK}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{hy_AM,hy}
 
 %find_lang %{name}
 
